@@ -72,8 +72,19 @@ public class ATM {
       @param value the amount to deposit
 	 */
 	public void deposit(double value) {
-        if (state == TRANSACT) {
-            currentAccount.deposit(value);
+		if (state == TRANSACT) {
+			try
+			{
+			if (value < 0) {
+				currentAccount.deposit(0);
+				throw new IllegalArgumentException(Double.toString(value));
+			}
+			else {
+				currentAccount.deposit(value);
+			}
+			} catch (IllegalArgumentException e) {
+				System.out.println(e);
+			}
         }
 	}
 

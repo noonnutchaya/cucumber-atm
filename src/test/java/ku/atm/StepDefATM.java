@@ -49,6 +49,20 @@ public class StepDefATM {
         atm.withdraw(amount);
     }
 
+
+// ----------------------------------------------------------------------------
+    /**
+     try-catch and throw new IllegalArgumentException
+     in "Deposit Function" (Class ATM)
+     */
+
+    @When("I deposit (.*) from ATM")
+    public void i_deposit_from_atm(double amount)  {
+        atm.deposit(amount);
+    }
+// ----------------------------------------------------------------------------
+
+
     @When("I overdraw (.*) from ATM")
     public void i_withdraw_from_atm_more_than_balance(double amount) throws NotEnoughBalanceException {
         assertThrows(NotEnoughBalanceException.class,
